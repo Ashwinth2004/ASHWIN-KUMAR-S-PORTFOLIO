@@ -11,7 +11,12 @@
   const fine    = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ---------- preloader ---------- */
-  // Dismiss on load, but never wait on a stalled font request.
+  // Hold the intro for ~2s so the animation reads, but never wait on a
+  // stalled font or image request beyond the hard cap.
+  const MIN_SHOW = 2400;
+  const HARD_CAP = 4000;
+  const started  = performance.now();
+
   const preloader = $('#preloader');
   let dismissed = false;
   const dismiss = () => {
@@ -19,8 +24,28 @@
     dismissed = true;
     preloader.classList.add('is-done');
   };
-  window.addEventListener('load', () => setTimeout(dismiss, 600));
-  setTimeout(dismiss, 2200);
+  const finish = () => setTimeout(dismiss, Math.max(0, MIN_SHOW - (performance.now() - started)));
+
+  window.addEventListener('load', finish);
+  setTimeout(finish, MIN_SHOW);   // in case `load` already fired or never does
+  setTimeout(dismiss, HARD_CAP);
+
+  /* ---------- collapsible social rail ---------- */
+  const rail       = $('#rail');
+  const railToggle = $('#railToggle');
+
+  const setRail = collapsed => {
+    rail.classList.toggle('is-collapsed', collapsed);
+    railToggle.setAttribute('aria-expanded', String(!collapsed));
+    railToggle.setAttribute('aria-label', collapsed ? 'Show social links' : 'Hide social links');
+    try { localStorage.setItem('railCollapsed', collapsed ? '1' : '0'); } catch (e) { /* private mode */ }
+  };
+
+  try {
+    if (localStorage.getItem('railCollapsed') === '1') setRail(true);
+  } catch (e) { /* storage unavailable — start expanded */ }
+
+  railToggle.addEventListener('click', () => setRail(!rail.classList.contains('is-collapsed')));
 
   /* ---------- header + scroll progress ---------- */
   const header   = $('#header');

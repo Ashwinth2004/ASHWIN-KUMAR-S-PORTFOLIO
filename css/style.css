@@ -190,26 +190,78 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   transition:opacity .7s var(--ease), visibility .7s;
 }
 .preloader.is-done{ opacity:0; visibility:hidden; }
-.preloader__inner{ text-align:center; }
+.preloader__inner{
+  display:flex; flex-direction:column; align-items:center;
+  text-align:center;
+  padding-inline:1.25rem;
+  width:100%;
+}
 
-.preloader__cube{
-  width:54px; height:54px; margin:0 auto 1.6rem;
+/* ---- student-at-a-laptop loading illustration ---- */
+.ld{
   position:relative;
-  transform-style:preserve-3d;
-  animation:pspin 3.4s linear infinite;
+  width:clamp(148px,38vw,215px);
+  aspect-ratio:430 / 543;
+  margin-bottom:1.5rem;
 }
-.preloader__cube i{
-  position:absolute; inset:0;
-  border:1.5px solid var(--accent);
-  background:rgba(255,201,77,.06);
+
+/* warm glow behind the character */
+.ld__halo{
+  position:absolute; left:50%; top:48%;
+  width:135%; aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(255,138,92,.26) 0%,
+    rgba(74,163,255,.16) 42%,
+    transparent 68%);
+  animation:ldHalo 3s ease-in-out infinite;
 }
-.preloader__cube i:nth-child(1){ transform:translateZ(27px); }
-.preloader__cube i:nth-child(2){ transform:rotateY(180deg) translateZ(27px); border-color:var(--c-blue); }
-.preloader__cube i:nth-child(3){ transform:rotateY(90deg)  translateZ(27px); border-color:var(--c-green); }
-.preloader__cube i:nth-child(4){ transform:rotateY(-90deg) translateZ(27px); border-color:var(--c-pink); }
-.preloader__cube i:nth-child(5){ transform:rotateX(90deg)  translateZ(27px); border-color:var(--c-violet); }
-.preloader__cube i:nth-child(6){ transform:rotateX(-90deg) translateZ(27px); border-color:var(--c-orange); }
-@keyframes pspin{ to{ transform:rotateX(360deg) rotateY(360deg); } }
+@keyframes ldHalo{
+  0%,100%{ opacity:.75; transform:translate(-50%,-50%) scale(.94); }
+  50%    { opacity:1;   transform:translate(-50%,-50%) scale(1.06); }
+}
+
+.ld__img{
+  position:relative; z-index:2;
+  width:100%; height:auto;
+  animation:
+    ldIn    .95s cubic-bezier(.2,.9,.3,1.3) both,
+    ldFloat 3s   ease-in-out 1s infinite;
+}
+/* rises and settles into place with a slight overshoot */
+@keyframes ldIn{
+  from{ opacity:0; transform:translateY(38px) scale(.84); }
+  to  { opacity:1; transform:none; }
+}
+@keyframes ldFloat{
+  0%,100%{ transform:translateY(0); }
+  50%    { transform:translateY(-9px); }
+}
+
+.ld__shadow{
+  position:absolute; left:50%; bottom:-1%;
+  width:60%; height:5%;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:radial-gradient(ellipse,rgba(5,8,24,.65) 0%,transparent 72%);
+  animation:ldShadow 3s ease-in-out 1s infinite;
+  z-index:1;
+}
+@keyframes ldShadow{
+  0%,100%{ transform:translateX(-50%) scale(1);   opacity:.85; }
+  50%    { transform:translateX(-50%) scale(.84); opacity:.55; }
+}
+
+/* exit: lifts away as the overlay fades */
+.preloader.is-done .ld__img{
+  animation:ldOut .55s cubic-bezier(.4,0,.2,1) forwards;
+}
+@keyframes ldOut{
+  to{ opacity:0; transform:translateY(-26px) scale(1.07); }
+}
+.preloader.is-done .ld__halo,
+.preloader.is-done .ld__shadow{ opacity:0; transition:opacity .4s; }
 
 .preloader__name{
   display:block; font-family:var(--mono);
@@ -222,10 +274,15 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 }
 .preloader__bar i{
   display:block; height:100%; width:0;
-  background:linear-gradient(90deg,var(--c-blue),var(--accent));
-  animation:load 1.2s var(--ease) forwards;
+  background:linear-gradient(90deg,var(--c-blue),var(--accent),var(--c-orange));
+  /* tracks the ~2.4s the intro is held for */
+  animation:load 2.3s cubic-bezier(.3,.8,.4,1) forwards;
 }
-@keyframes load{ to{ width:100%; } }
+@keyframes load{
+  0%  { width:0; }
+  55% { width:64%; }
+  100%{ width:100%; }
+}
 
 /* ============================================================
    HEADER
@@ -328,9 +385,15 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 .rail{
   position:fixed; right:0; bottom:0; z-index:900;
   width:var(--rail);
-  display:flex; flex-direction:column-reverse; align-items:center; gap:.75rem;
+  display:flex; flex-direction:column-reverse; align-items:center;
   padding-bottom:1.2rem;
 }
+.rail__items{
+  display:flex; flex-direction:column-reverse; align-items:center; gap:.75rem;
+}
+/* the collapse control is mobile-only */
+.rail__toggle{ display:none; }
+
 .rail a{
   display:grid; place-items:center;
   width:40px; height:40px; border-radius:12px;
@@ -338,26 +401,17 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   background:rgba(255,255,255,.04);
   transition:transform .35s var(--ease), border-color .3s, background .3s;
 }
-.rail svg{ width:17px; height:17px; fill:var(--ic); opacity:.85; transition:opacity .3s; }
+/* scoped to the links: a bare `.rail svg` also caught the toggle's own icons
+   and beat their (lower-specificity) show/hide rules */
+.rail__items a svg{ width:17px; height:17px; fill:var(--ic); opacity:.85; transition:opacity .3s; }
 .rail a:hover{
   transform:translateY(-4px);
   border-color:var(--ic);
   background:color-mix(in srgb, var(--ic) 16%, transparent);
 }
-.rail a:hover svg{ opacity:1; }
+.rail__items a:hover svg{ opacity:1; }
 .rail__line{ width:1px; height:76px; background:linear-gradient(transparent,var(--line)); }
 
-/* social row inside the mobile menu — hidden on desktop */
-.nav__social{ display:none; gap:.7rem; margin-top:1.6rem; }
-.nav__social a{
-  display:grid; place-items:center;
-  width:48px; height:48px; border-radius:14px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.05);
-  transition:border-color .3s, background .3s;
-}
-.nav__social svg{ width:20px; height:20px; fill:var(--ic); }
-.nav__social a:active{ border-color:var(--ic); }
 
 /* ============================================================
    BUTTONS
@@ -1091,10 +1145,63 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   .nav__link{ font-size:1.2rem; padding:.75rem 2rem; text-align:center; }
   .nav__link--cta{ margin-left:0; margin-top:.5rem; }
 
-  /* A fixed rail would sit on top of whatever is at the bottom of the
-     viewport, so on small screens the socials live in the menu instead. */
-  .rail{ display:none; }
-  .nav__social{ display:flex; }
+  /* Rail hugs the right edge, vertically centred, and can be collapsed
+     out of the way so it never blocks the content underneath. */
+  .rail{
+    width:auto;
+    right:0; bottom:auto; top:50%;
+    transform:translateY(-50%);
+    flex-direction:row; align-items:center;
+    padding:0;
+    gap:0;
+  }
+  .rail__line{ display:none; }
+
+  .rail__items{
+    flex-direction:column; gap:.5rem;
+    padding:.55rem .5rem;
+    border:1px solid var(--line);
+    border-right:0;
+    border-radius:16px 0 0 16px;
+    background:rgba(23,28,57,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:-6px 0 24px rgba(8,11,28,.4);
+    transition:transform .4s var(--ease), opacity .3s var(--ease);
+  }
+  .rail a{ width:38px; height:38px; border-radius:11px; }
+
+  .rail__toggle{
+    display:grid; place-items:center;
+    width:26px; height:52px;
+    margin-right:-1px;
+    padding:0; cursor:pointer;
+    border:1px solid var(--line);
+    border-right:0;
+    border-radius:12px 0 0 12px;
+    background:rgba(23,28,57,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    color:var(--muted);
+    -webkit-tap-highlight-color:transparent;
+    order:-1;                       /* sits to the left of the icons */
+  }
+  .rail__ico{
+    grid-area:1 / 1;                /* both icons stack in the same cell */
+    width:14px; height:14px; fill:currentColor;
+    transition:opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .rail__ico--open{ opacity:0; transform:scale(.6); }
+
+  /* collapsed: icons slide off-screen, only the handle remains */
+  .rail.is-collapsed .rail__items{
+    transform:translateX(110%);
+    opacity:0;
+    pointer-events:none;
+  }
+  .rail.is-collapsed .rail__toggle{ color:var(--accent); }
+  .rail.is-collapsed .rail__ico--close{ opacity:0; transform:scale(.6); }
+  .rail.is-collapsed .rail__ico--open { opacity:1; transform:none; }
 
   .hero{ padding:6rem 0 4.5rem; padding-right:0; }
   .hero__wrap{ grid-template-columns:1fr; gap:2.2rem; text-align:center; }
