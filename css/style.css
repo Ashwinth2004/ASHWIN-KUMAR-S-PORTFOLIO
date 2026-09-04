@@ -1145,62 +1145,68 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   .nav__link{ font-size:1.2rem; padding:.75rem 2rem; text-align:center; }
   .nav__link--cta{ margin-left:0; margin-top:.5rem; }
 
-  /* Rail hugs the right edge, vertically centred, and can be collapsed
-     out of the way so it never blocks the content underneath. */
+  /* Rail becomes a corner button: the handle stays pinned in the
+     bottom-right corner in both states, and the icons stack above it.
+     The list is positioned absolutely so collapsing it cannot shift
+     the handle away from the corner. */
   .rail{
+    display:block;
     width:auto;
-    right:0; bottom:auto; top:50%;
-    transform:translateY(-50%);
-    flex-direction:row; align-items:center;
+    right:.85rem; left:auto;
+    bottom:.9rem; top:auto;
+    transform:none;
     padding:0;
-    gap:0;
   }
   .rail__line{ display:none; }
 
   .rail__items{
+    position:absolute;
+    right:0; bottom:100%;
+    margin-bottom:.55rem;
     flex-direction:column; gap:.5rem;
-    padding:.55rem .5rem;
+    padding:.5rem;
     border:1px solid var(--line);
-    border-right:0;
-    border-radius:16px 0 0 16px;
-    background:rgba(23,28,57,.92);
+    border-radius:18px;
+    background:rgba(23,28,57,.94);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
-    box-shadow:-6px 0 24px rgba(8,11,28,.4);
-    transition:transform .4s var(--ease), opacity .3s var(--ease);
+    box-shadow:0 10px 30px rgba(8,11,28,.55);
+    transform-origin:100% 100%;
+    transition:transform .34s var(--ease), opacity .26s var(--ease);
   }
-  .rail a{ width:38px; height:38px; border-radius:11px; }
+  .rail a{ width:40px; height:40px; border-radius:12px; }
 
   .rail__toggle{
     display:grid; place-items:center;
-    width:26px; height:52px;
-    margin-right:-1px;
+    width:46px; height:46px;
     padding:0; cursor:pointer;
     border:1px solid var(--line);
-    border-right:0;
-    border-radius:12px 0 0 12px;
-    background:rgba(23,28,57,.92);
+    border-radius:50%;
+    background:rgba(23,28,57,.94);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     color:var(--muted);
+    box-shadow:0 8px 24px rgba(8,11,28,.5);
     -webkit-tap-highlight-color:transparent;
-    order:-1;                       /* sits to the left of the icons */
   }
   .rail__ico{
-    grid-area:1 / 1;                /* both icons stack in the same cell */
-    width:14px; height:14px; fill:currentColor;
+    grid-area:1 / 1;                /* both arrows stack in the same cell */
+    width:17px; height:17px; fill:currentColor;
     transition:opacity .25s var(--ease), transform .25s var(--ease);
   }
-  .rail__ico--open{ opacity:0; transform:scale(.6); }
+  .rail__ico--open{ opacity:0; transform:translateY(3px); }
 
-  /* collapsed: icons slide off-screen, only the handle remains */
+  /* collapsed: the list folds down into the handle */
   .rail.is-collapsed .rail__items{
-    transform:translateX(110%);
+    transform:translateY(10px) scale(.9);
     opacity:0;
     pointer-events:none;
   }
-  .rail.is-collapsed .rail__toggle{ color:var(--accent); }
-  .rail.is-collapsed .rail__ico--close{ opacity:0; transform:scale(.6); }
+  .rail.is-collapsed .rail__toggle{
+    color:var(--accent);
+    border-color:rgba(255,201,77,.45);
+  }
+  .rail.is-collapsed .rail__ico--close{ opacity:0; transform:translateY(-3px); }
   .rail.is-collapsed .rail__ico--open { opacity:1; transform:none; }
 
   .hero{ padding:6rem 0 4.5rem; padding-right:0; }
