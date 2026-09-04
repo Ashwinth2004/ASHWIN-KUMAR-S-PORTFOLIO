@@ -248,7 +248,12 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   box-shadow:0 12px 40px rgba(9,12,28,.45);
 }
 
-.logo{ display:flex; align-items:center; gap:.6rem; flex-shrink:0; }
+.logo{
+  display:flex; align-items:center; gap:.6rem; flex-shrink:0;
+  /* tapping the wordmark should never select text or flash a highlight */
+  -webkit-user-select:none; user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
 .logo__mark{
   width:36px; height:36px; border-radius:11px;
   background:linear-gradient(135deg,var(--accent),var(--c-orange));
@@ -409,23 +414,42 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 }
 
 .badge{
-  display:inline-flex; align-items:center; gap:.5rem;
-  padding:.4rem .95rem;
-  border:1px solid var(--line);
-  background:rgba(61,220,151,.08);
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.42rem 1.1rem .42rem .45rem;
+  border:1px solid rgba(61,220,151,.42);
+  background:linear-gradient(100deg,rgba(61,220,151,.20),rgba(61,220,151,.07));
   border-radius:100px;
-  font-size:.78rem; color:var(--muted);
   margin-bottom:1.4rem;
+  box-shadow:0 0 0 4px rgba(61,220,151,.06), 0 10px 26px rgba(61,220,151,.13);
 }
-.badge__dot{
-  width:7px; height:7px; border-radius:50%;
+.badge__text{
+  font-size:.76rem; font-weight:500;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:#9df3c8;
+  white-space:nowrap;
+}
+/* live status light */
+.badge__pulse{
+  position:relative;
+  display:grid; place-items:center;
+  width:22px; height:22px; border-radius:50%;
+  background:rgba(61,220,151,.18);
+  flex-shrink:0;
+}
+.badge__pulse i{
+  width:8px; height:8px; border-radius:50%;
   background:var(--c-green);
-  box-shadow:0 0 0 0 rgba(61,220,151,.6);
-  animation:pulse 2.2s infinite;
+  box-shadow:0 0 8px rgba(61,220,151,.9);
+}
+.badge__pulse::after{
+  content:''; position:absolute; inset:0;
+  border-radius:50%;
+  border:1.5px solid var(--c-green);
+  animation:pulse 2.2s ease-out infinite;
 }
 @keyframes pulse{
-  70%{ box-shadow:0 0 0 9px rgba(61,220,151,0); }
-  100%{ box-shadow:0 0 0 0 rgba(61,220,151,0); }
+  0%  { transform:scale(.7); opacity:.9; }
+  100%{ transform:scale(1.5); opacity:0; }
 }
 
 .hero__hi{ font-size:1.02rem; color:var(--muted); margin-bottom:.3rem; }
@@ -618,32 +642,6 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   50%{ transform:translateY(-12px); }
 }
 
-.scroll-cue{
-  position:absolute; left:50%; bottom:1.4rem;
-  transform:translateX(-50%);
-  display:flex; flex-direction:column; align-items:center; gap:.5rem;
-  font-family:var(--mono); font-size:.6rem;
-  letter-spacing:.22em; text-transform:uppercase;
-  color:var(--dim);
-  transition:color .3s;
-}
-.scroll-cue:hover{ color:var(--accent); }
-.scroll-cue__mouse{
-  width:22px; height:34px; border-radius:12px;
-  border:1px solid var(--line);
-  display:grid; justify-items:center; padding-top:6px;
-}
-.scroll-cue__mouse i{
-  width:3px; height:7px; border-radius:3px;
-  background:var(--accent);
-  animation:wheel 1.8s var(--ease) infinite;
-}
-@keyframes wheel{
-  0%{ transform:translateY(0); opacity:1; }
-  70%{ transform:translateY(12px); opacity:0; }
-  100%{ transform:translateY(0); opacity:0; }
-}
-
 /* ============================================================
    MARQUEE
    ============================================================ */
@@ -661,11 +659,12 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 .marquee:hover .marquee__track{ animation-play-state:paused; }
 .marquee span{
   font-family:var(--display);
-  font-size:1rem; font-weight:600;
-  color:rgba(255,255,255,.28);
+  font-size:1.02rem; font-weight:700;
+  letter-spacing:.01em;
+  color:var(--accent);
   white-space:nowrap;
 }
-.marquee i{ color:var(--accent); font-style:normal; font-size:.58rem; }
+.marquee i{ color:rgba(255,255,255,.30); font-style:normal; font-size:.55rem; }
 @keyframes slide{ to{ transform:translateX(-50%); } }
 
 /* ============================================================
@@ -677,14 +676,25 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 .head{ margin-bottom:3rem; max-width:780px; }
 .head--center{ margin-inline:auto; text-align:center; }
 
+/* section label — a pill so each section announces itself clearly */
 .eyebrow{
-  display:inline-flex; align-items:center; gap:.5rem;
+  display:inline-flex; align-items:center; gap:.55rem;
   font-family:var(--mono);
-  font-size:.7rem; letter-spacing:.2em; text-transform:uppercase;
+  font-size:.84rem; font-weight:500;
+  letter-spacing:.22em; text-transform:uppercase;
   color:var(--accent);
-  margin-bottom:.8rem;
+  padding:.42rem 1.05rem .42rem .85rem;
+  border-radius:100px;
+  border:1px solid rgba(255,201,77,.32);
+  background:rgba(255,201,77,.09);
+  box-shadow:0 6px 20px rgba(255,201,77,.10);
+  margin-bottom:1.1rem;
 }
-.eyebrow i{ width:22px; height:1px; background:var(--accent); }
+.eyebrow i{
+  width:16px; height:2px; border-radius:2px;
+  background:var(--accent);
+  flex-shrink:0;
+}
 
 .title{
   font-family:var(--display);
@@ -1015,12 +1025,13 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
 .cta{ margin-top:2.6rem; text-align:center; }
 
 /* ============ FOOTER ============ */
-.footer{ border-top:1px solid var(--line); padding:1.6rem 0; }
+.footer{ border-top:1px solid var(--line); padding:1.8rem 0; }
 .footer__inner{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:1rem; flex-wrap:wrap;
+  /* reversed so the copyright line sits last, centred at the very bottom */
+  display:flex; flex-direction:column-reverse; align-items:center;
+  gap:.7rem; text-align:center;
 }
-.footer p{ color:var(--dim); font-size:.85rem; }
+.footer p{ color:var(--muted); font-size:.88rem; letter-spacing:.02em; }
 .footer__top{
   font-family:var(--mono); font-size:.72rem;
   color:var(--muted); transition:color .3s;
@@ -1084,7 +1095,6 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
      viewport, so on small screens the socials live in the menu instead. */
   .rail{ display:none; }
   .nav__social{ display:flex; }
-  .scroll-cue{ display:none; }
 
   .hero{ padding:6rem 0 4.5rem; padding-right:0; }
   .hero__wrap{ grid-template-columns:1fr; gap:2.2rem; text-align:center; }
@@ -1119,7 +1129,6 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   .tl__meta{ flex-direction:row; align-items:center; gap:.7rem; flex-wrap:wrap; }
   .project{ grid-template-columns:1fr; gap:.5rem; padding:1.5rem; }
   .facts{ grid-template-columns:1fr; }
-  .footer__inner{ justify-content:center; text-align:center; }
   .scene{ width:min(100%,205px); }
   .cube-stage{ width:66px; height:66px; top:1%; }
   .cube__f--fr{ transform:translateZ(33px); }
