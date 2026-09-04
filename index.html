@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashwin Kumar S — Data Scientist &amp; Analytics Engineer</title>
+<meta name="description" content="Portfolio of Ashwin Kumar S — Data Science postgraduate specialising in Data Analysis, Python, SQL, Power BI, Machine Learning and AI-powered financial analytics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ BACKGROUND PATTERN LAYERS ============ -->
+<div class="bg" aria-hidden="true">
+  <div class="bg__grid"></div>
+  <div class="bg__dots" data-parallax="14"></div>
+  <div class="bg__blob bg__blob--1" data-parallax="26"></div>
+  <div class="bg__blob bg__blob--2" data-parallax="-20"></div>
+  <div class="bg__blob bg__blob--3" data-parallax="16"></div>
+
+  <svg class="bg__wave bg__wave--a" viewBox="0 0 400 100" preserveAspectRatio="none" data-parallax="10">
+    <path d="M0 50 Q 25 20 50 50 T 100 50 T 150 50 T 200 50 T 250 50 T 300 50 T 350 50 T 400 50"/>
+  </svg>
+  <svg class="bg__wave bg__wave--b" viewBox="0 0 400 100" preserveAspectRatio="none" data-parallax="-12">
+    <path d="M0 50 Q 25 80 50 50 T 100 50 T 150 50 T 200 50 T 250 50 T 300 50 T 350 50 T 400 50"/>
+  </svg>
+
+  <!-- data-science / AI motifs replacing the old plain circles -->
+  <svg class="bg__icon bg__icon--net" viewBox="0 0 120 120" data-parallax="-16">
+    <circle cx="20" cy="24" r="6"/><circle cx="20" cy="60" r="6"/><circle cx="20" cy="96" r="6"/>
+    <circle cx="60" cy="42" r="6"/><circle cx="60" cy="78" r="6"/>
+    <circle cx="100" cy="60" r="6"/>
+    <path d="M26 24 54 42M26 60 54 42M26 60 54 78M26 96 54 78M66 42 94 60M66 78 94 60"/>
+  </svg>
+
+  <svg class="bg__icon bg__icon--brain" viewBox="0 0 120 120" data-parallax="20">
+    <path d="M60 18v84"/>
+    <path d="M60 26a16 16 0 0 0-16-16 14 14 0 0 0-13 20 14 14 0 0 0-6 22 15 15 0 0 0 9 24 15 15 0 0 0 26 10"/>
+    <path d="M60 26a16 16 0 0 1 16-16 14 14 0 0 1 13 20 14 14 0 0 1 6 22 15 15 0 0 1-9 24 15 15 0 0 1-26 10"/>
+    <circle cx="44" cy="44" r="3.5"/><circle cx="76" cy="58" r="3.5"/><circle cx="48" cy="76" r="3.5"/>
+  </svg>
+
+  <svg class="bg__icon bg__icon--chart" viewBox="0 0 120 120" data-parallax="12">
+    <path d="M16 100h88M16 100V22"/>
+    <rect x="30" y="66" width="14" height="34" rx="3"/>
+    <rect x="54" y="46" width="14" height="54" rx="3"/>
+    <rect x="78" y="28" width="14" height="72" rx="3"/>
+  </svg>
+
+  <svg class="bg__icon bg__icon--db" viewBox="0 0 120 120" data-parallax="-13">
+    <ellipse cx="60" cy="28" rx="34" ry="13"/>
+    <path d="M26 28v28c0 7 15 13 34 13s34-6 34-13V28"/>
+    <path d="M26 56v28c0 7 15 13 34 13s34-6 34-13V56"/>
+  </svg>
+
+  <span class="bg__plus bg__plus--1" data-parallax="18">+</span>
+  <span class="bg__plus bg__plus--2" data-parallax="-14">+</span>
+  <span class="bg__plus bg__plus--3" data-parallax="12">+</span>
+</div>
+
+<div class="scroll-progress"><span id="progressBar"></span></div>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader__inner">
+    <div class="preloader__cube"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="preloader__name">ASHWIN&nbsp;KUMAR&nbsp;S</span>
+    <span class="preloader__bar"><i></i></span>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <a href="#home" class="logo" data-scroll data-magnetic>
+    <span class="logo__mark">
+      <!-- student at a laptop -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 1.6 5.4 4.5 12 7.4l6.6-2.9L12 1.6Z"/>
+        <path d="M7.2 6.1v2.2c0 .5.3.9.7 1.1 2.6 1.2 5.6 1.2 8.2 0 .4-.2.7-.6.7-1.1V6.1L12 8.6 7.2 6.1Z"/>
+        <path d="M9.1 11.2h5.8c.7 0 1.3.6 1.3 1.3v4.1H7.8v-4.1c0-.7.6-1.3 1.3-1.3Z"/>
+        <path d="M4.5 17.9h15c.6 0 1 .6.7 1.1l-.6 1.1c-.3.5-.8.8-1.4.8H5.8c-.6 0-1.1-.3-1.4-.8l-.6-1.1c-.3-.5.1-1.1.7-1.1Z"/>
+      </svg>
+    </span>
+    <span class="logo__text">Ashwin Kumar S</span>
+  </a>
+
+  <nav class="nav" id="nav">
+    <a href="#home"       class="nav__link is-active" data-scroll><span>Home</span></a>
+    <a href="#about"      class="nav__link" data-scroll><span>About</span></a>
+    <a href="#skills"     class="nav__link" data-scroll><span>Skills</span></a>
+    <a href="#experience" class="nav__link" data-scroll><span>Experience</span></a>
+    <a href="#projects"   class="nav__link" data-scroll><span>Projects</span></a>
+    <a href="#contact"    class="nav__link nav__link--cta" data-scroll><span>Let's Talk</span></a>
+
+    <!-- shown only inside the mobile menu -->
+    <div class="nav__social">
+      <a href="https://www.linkedin.com/in/ashwinkumar08082004" target="_blank" rel="noopener" aria-label="LinkedIn" style="--ic:#0A66C2">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://github.com/Ashwinth2004/" target="_blank" rel="noopener" aria-label="GitHub" style="--ic:#ffffff">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      <a href="mailto:ashwinth08082004@gmail.com" aria-label="Gmail" style="--ic:#EA4335">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+      </a>
+      <a href="tel:+917010580526" aria-label="Phone" style="--ic:#3ddc97">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ============ SOCIAL RAIL (right) ============ -->
+<div class="rail">
+  <span class="rail__line"></span>
+
+  <a href="https://www.linkedin.com/in/ashwinkumar08082004" target="_blank" rel="noopener" aria-label="LinkedIn" style="--ic:#0A66C2">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  </a>
+
+  <a href="https://github.com/Ashwinth2004/" target="_blank" rel="noopener" aria-label="GitHub" style="--ic:#ffffff">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+  </a>
+
+  <a href="mailto:ashwinth08082004@gmail.com" aria-label="Gmail" style="--ic:#EA4335">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+  </a>
+
+  <a href="tel:+917010580526" aria-label="Phone" style="--ic:#3ddc97">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg>
+  </a>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero__wrap">
+
+    <div class="hero__text">
+      <p class="badge reveal">
+        <span class="badge__dot"></span> Available for opportunities
+      </p>
+
+      <p class="hero__hi reveal" data-delay="1">Hello, I'm</p>
+      <h1 class="hero__name reveal" data-delay="2">Ashwin Kumar S</h1>
+      <p class="hero__role reveal" data-delay="3">
+        <span class="hero__role-tag">Data Scientist</span>
+        <span class="hero__role-sep">&amp;</span>
+        <span class="hero__role-tag hero__role-tag--alt">Analytics Engineer</span>
+      </p>
+
+      <p class="hero__desc reveal" data-delay="4">
+        M.Sc. Data Science student turning messy data into decisions people act on —
+        across Python, SQL, Power BI and machine learning.
+      </p>
+
+      <div class="hero__actions reveal" data-delay="5">
+        <a href="#projects" class="btn btn--solid" data-scroll data-magnetic>View My Work</a>
+        <a href="#contact"  class="btn btn--line"  data-scroll data-magnetic>Get In Touch</a>
+      </div>
+
+      <div class="hero__stats reveal" data-delay="6">
+        <div class="stat"><b data-count="3">0</b><span>Internships</span></div>
+        <div class="stat"><b data-count="4">0</b><span>Projects</span></div>
+        <div class="stat"><b data-count="5">0</b><span>Certifications</span></div>
+        <div class="stat"><b data-count="8" data-decimal="1">0</b><span>CGPA</span></div>
+      </div>
+    </div>
+
+    <!-- ===== 3D SCENE + PHOTO ===== -->
+    <div class="hero__visual reveal-photo">
+      <div class="scene" id="scene">
+        <!-- decorative rings sit strictly behind the photograph -->
+        <span class="scene__ring scene__ring--1"></span>
+        <span class="scene__ring scene__ring--2"></span>
+
+        <div class="photo">
+          <img src="assets/profile.jpg" alt="Ashwin Kumar S" width="720" height="1280">
+        </div>
+
+        <!-- floating 3D data cube — clear of the photograph -->
+        <div class="cube-stage" aria-hidden="true">
+          <div class="cube">
+            <span class="cube__f cube__f--fr" style="--c:#4aa3ff">
+              <svg viewBox="0 0 24 24"><path d="M9.4 3h5.2c1 0 1.9.8 1.9 1.9v2.3H12v1h6.6c1 0 1.9.8 1.9 1.9v3.8c0 1-.8 1.9-1.9 1.9h-1.9v-2.4c0-1.4-1.1-2.5-2.5-2.5H9.8c-1.2 0-2.2-1-2.2-2.2V4.9C7.6 3.8 8.4 3 9.4 3Zm.7 1.3a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8Z"/><path d="M14.6 21H9.4c-1 0-1.9-.8-1.9-1.9v-2.3H12v-1H5.4c-1 0-1.9-.8-1.9-1.9v-3.8c0-1 .8-1.9 1.9-1.9h1.9v2.4c0 1.4 1.1 2.5 2.5 2.5h4.4c1.2 0 2.2 1 2.2 2.2v3.8c0 1-.8 1.9-1.8 1.9Zm-.7-1.3a.9.9 0 1 0 0-1.8.9.9 0 0 0 0 1.8Z"/></svg>
+              <b>Python</b>
+            </span>
+            <span class="cube__f cube__f--bk" style="--c:#ff8a5c">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="8" ry="3.2"/><path d="M4 8.5v3.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V8.5c0 1.8-3.6 3.2-8 3.2s-8-1.4-8-3.2Z"/><path d="M4 14.4v3.2c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2v-3.2c0 1.8-3.6 3.2-8 3.2s-8-1.4-8-3.2Z"/></svg>
+              <b>SQL</b>
+            </span>
+            <span class="cube__f cube__f--rt" style="--c:#ffc94d">
+              <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
+              <b>Power BI</b>
+            </span>
+            <span class="cube__f cube__f--lt" style="--c:#3ddc97">
+              <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 0-4 4 3.6 3.6 0 0 0-2 6.5A3.6 3.6 0 0 0 8.6 19 3.4 3.4 0 0 0 12 22V2Z"/><path d="M12 2a4 4 0 0 1 4 4 3.6 3.6 0 0 1 2 6.5A3.6 3.6 0 0 1 15.4 19 3.4 3.4 0 0 1 12 22V2Z" opacity=".55"/></svg>
+              <b>ML</b>
+            </span>
+            <span class="cube__f cube__f--tp" style="--c:#c9b8ff">
+              <svg viewBox="0 0 24 24"><path d="M12 2l1.9 4.6L18.5 8l-4.6 1.4L12 14l-1.9-4.6L5.5 8l4.6-1.4L12 2Z"/><path d="M18.5 14l1 2.4 2.5.8-2.5.8-1 2.4-1-2.4-2.5-.8 2.5-.8 1-2.4Z"/><path d="M5 15l.8 1.9 2 .6-2 .6L5 20l-.8-1.9-2-.6 2-.6L5 15Z"/></svg>
+              <b>AI</b>
+            </span>
+            <span class="cube__f cube__f--bt" style="--c:#ff6b9d">
+              <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 12l10 5 10-5" opacity=".6"/><path d="M2 17l10 5 10-5" opacity=".35"/></svg>
+              <b>Data</b>
+            </span>
+          </div>
+        </div>
+
+        <!-- floating coloured chips — placed outside the photo frame -->
+        <span class="chip chip--1" style="--c:#4aa3ff">Pandas</span>
+        <span class="chip chip--2" style="--c:#3ddc97">NumPy</span>
+        <span class="chip chip--3" style="--c:#ffc94d">Power BI</span>
+        <span class="chip chip--4" style="--c:#ff6b9d">Scikit-learn</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="scroll-cue" data-scroll aria-label="Scroll down">
+    <span class="scroll-cue__mouse"><i></i></span>
+    <span>Scroll</span>
+  </a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Python</span><i>◆</i><span>SQL</span><i>◆</i><span>Power BI</span><i>◆</i>
+    <span>Machine Learning</span><i>◆</i><span>Pandas</span><i>◆</i><span>NumPy</span><i>◆</i>
+    <span>Vector Search</span><i>◆</i><span>ETL</span><i>◆</i><span>MongoDB</span><i>◆</i>
+    <span>Scikit-learn</span><i>◆</i><span>Data Visualization</span><i>◆</i><span>Prompt Engineering</span><i>◆</i>
+    <span>Python</span><i>◆</i><span>SQL</span><i>◆</i><span>Power BI</span><i>◆</i>
+    <span>Machine Learning</span><i>◆</i><span>Pandas</span><i>◆</i><span>NumPy</span><i>◆</i>
+    <span>Vector Search</span><i>◆</i><span>ETL</span><i>◆</i><span>MongoDB</span><i>◆</i>
+    <span>Scikit-learn</span><i>◆</i><span>Data Visualization</span><i>◆</i><span>Prompt Engineering</span><i>◆</i>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><i></i> About Me</span>
+      <h2 class="title">Who I <em>am</em></h2>
+    </div>
+
+    <div class="about">
+      <div class="about__body reveal" data-delay="1">
+        <p class="lead">
+          I'm <strong>Ashwin Kumar S</strong>, a Data Science postgraduate at Loyola College, Chennai —
+          working where <em>analytics, finance and product quality</em> meet.
+        </p>
+        <p>
+          Over the past two years I've built Power BI dashboards for solar energy performance,
+          analysed taxation datasets to support Income Tax Return preparation, and run manual QA
+          across business-critical finance modules as a Product Engineering Intern. That mix taught
+          me something specific: an insight is only as good as the pipeline and the testing behind it.
+        </p>
+        <p>
+          Today I build end-to-end analytical products — ETL and data cleaning, exploratory analysis,
+          predictive modelling and AI-powered retrieval using vector embeddings — then package them
+          into interfaces a non-technical decision maker can actually use.
+        </p>
+
+        <div class="facts">
+          <div class="fact" style="--c:#4aa3ff"><span>Location</span><strong>Chennai, India</strong></div>
+          <div class="fact" style="--c:#3ddc97"><span>Degree</span><strong>M.Sc. Data Science</strong></div>
+          <div class="fact" style="--c:#ffc94d"><span>Languages</span><strong>English, Tamil</strong></div>
+          <div class="fact" style="--c:#ff6b9d"><span>Status</span><strong>Open to work</strong></div>
+        </div>
+      </div>
+
+      <aside class="about__edu reveal" data-delay="2">
+        <h3 class="mini-title">Education</h3>
+        <ul class="edu">
+          <li style="--c:#4aa3ff">
+            <span class="edu__year">2025 — 2027</span>
+            <h4>M.Sc., Data Science</h4>
+            <p>Loyola College · Pursuing</p>
+            <span class="pill">8.0 CGPA — 2nd Sem</span>
+          </li>
+          <li style="--c:#3ddc97">
+            <span class="edu__year">2022 — 2025</span>
+            <h4>B.Sc., Mathematics</h4>
+            <p>Loyola College</p>
+            <span class="pill">6.5 CGPA</span>
+          </li>
+          <li style="--c:#ffc94d">
+            <span class="edu__year">2022</span>
+            <h4>HSC</h4>
+            <p>Daniel Matriculation Hr. Sec. School</p>
+            <span class="pill">85%</span>
+          </li>
+          <li style="--c:#ff6b9d">
+            <span class="edu__year">2020</span>
+            <h4>SSLC</h4>
+            <p>Daniel Matriculation Hr. Sec. School</p>
+            <span class="pill">86%</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section section--alt" id="skills">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><i></i> Skills</span>
+      <h2 class="title">What I <em>work with</em></h2>
+    </div>
+
+    <div class="skills">
+      <article class="card tilt reveal" data-delay="1" style="--c:#4aa3ff">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><path d="M8 4 3 12l5 8M16 4l5 8-5 8M14 3l-4 18"/></svg>
+        </span>
+        <h3>Programming &amp; Query</h3>
+        <p>The languages I use daily to extract, transform and model data.</p>
+        <ul class="chips"><li>Python</li><li>SQL</li><li>Pandas</li><li>NumPy</li></ul>
+        <span class="card__no">01</span>
+      </article>
+
+      <article class="card tilt reveal" data-delay="2" style="--c:#ffc94d">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+        </span>
+        <h3>Analysis &amp; Visualization</h3>
+        <p>Turning results into dashboards and reports stakeholders trust.</p>
+        <ul class="chips"><li>Power BI</li><li>Matplotlib</li><li>MS Excel</li><li>DAX</li></ul>
+        <span class="card__no">02</span>
+      </article>
+
+      <article class="card tilt reveal" data-delay="3" style="--c:#3ddc97">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.6 7.6 10.8 16M16.4 7.6 13.2 16M8.4 6h7.2"/></svg>
+        </span>
+        <h3>Machine Learning</h3>
+        <p>From EDA and feature engineering through to model evaluation.</p>
+        <ul class="chips"><li>Scikit-learn</li><li>Regression</li><li>Classification</li><li>Forecasting</li></ul>
+        <span class="card__no">03</span>
+      </article>
+
+      <article class="card tilt reveal" data-delay="4" style="--c:#ff8a5c">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+        </span>
+        <h3>Databases</h3>
+        <p>Relational, document and vector stores for every shape of data.</p>
+        <ul class="chips"><li>MySQL</li><li>MongoDB</li><li>Upstash Vector</li><li>Firebase</li></ul>
+        <span class="card__no">04</span>
+      </article>
+
+      <article class="card tilt reveal" data-delay="5" style="--c:#ff6b9d">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 6h7l2 3h9M3 6v12h18V9"/><path d="M7 13h5"/></svg>
+        </span>
+        <h3>Data Engineering</h3>
+        <p>Reliable pipelines and clean inputs — the part that decides everything downstream.</p>
+        <ul class="chips"><li>ETL</li><li>Data Cleaning</li><li>Pipelines</li><li>Preprocessing</li></ul>
+        <span class="card__no">05</span>
+      </article>
+
+      <article class="card tilt reveal" data-delay="6" style="--c:#c9b8ff">
+        <span class="card__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.4"/></svg>
+        </span>
+        <h3>AI &amp; Generative AI</h3>
+        <p>Semantic retrieval systems and prompt-driven analytical tooling.</p>
+        <ul class="chips"><li>Prompt Engineering</li><li>Semantic Search</li><li>Embeddings</li></ul>
+        <span class="card__no">06</span>
+      </article>
+    </div>
+
+    <div class="meters reveal">
+      <h3 class="mini-title">Proficiency</h3>
+      <div class="meters__grid">
+        <div class="meter" style="--c:#4aa3ff"><span>Python</span><i data-val="90"></i><b>90%</b></div>
+        <div class="meter" style="--c:#ff8a5c"><span>SQL</span><i data-val="85"></i><b>85%</b></div>
+        <div class="meter" style="--c:#ffc94d"><span>Power BI</span><i data-val="88"></i><b>88%</b></div>
+        <div class="meter" style="--c:#3ddc97"><span>Machine Learning</span><i data-val="80"></i><b>80%</b></div>
+        <div class="meter" style="--c:#c9b8ff"><span>Data Visualization</span><i data-val="87"></i><b>87%</b></div>
+        <div class="meter" style="--c:#ff6b9d"><span>Software Testing</span><i data-val="78"></i><b>78%</b></div>
+      </div>
+    </div>
+
+    <div class="tools reveal">
+      <h3 class="mini-title">Tools &amp; Platforms</h3>
+      <ul class="chips chips--wide">
+        <li>Git</li><li>GitHub</li><li>VS Code</li><li>Jupyter</li><li>Vercel</li>
+        <li>Canva</li><li>SketchUp</li><li>AutoCAD</li><li>Excel</li><li>KPI Analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><i></i> Experience</span>
+      <h2 class="title">Where I've <em>worked</em></h2>
+    </div>
+
+    <div class="timeline">
+      <article class="tl reveal" data-delay="1" style="--c:#4aa3ff">
+        <div class="tl__meta">
+          <span class="tl__date">Apr 2026 — May 2026</span>
+          <span class="tl__type">Internship</span>
+        </div>
+        <div class="tl__body">
+          <h3>Product Engineering Intern</h3>
+          <p class="tl__org">D2R AI Labs</p>
+          <ul>
+            <li>Conducted manual software testing and quality assurance across business-critical application modules.</li>
+            <li>Tracked, documented and validated defects while supporting product improvements and release quality.</li>
+            <li>Evaluated finance, taxation and accounting workflows to ensure functional accuracy and system reliability.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl reveal" data-delay="2" style="--c:#3ddc97">
+        <div class="tl__meta">
+          <span class="tl__date">May 2025 — Aug 2025</span>
+          <span class="tl__type">Internship</span>
+        </div>
+        <div class="tl__body">
+          <h3>Finance Analyst &amp; Computax Operations</h3>
+          <p class="tl__org">Computax Operations</p>
+          <ul>
+            <li>Analysed financial and taxation datasets to support Income Tax Return preparation and compliance.</li>
+            <li>Performed data validation, categorisation and computation to identify eligible deductions and improve reporting accuracy.</li>
+            <li>Assisted in tax analysis, documentation and financial reporting using structured data workflows.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="tl reveal" data-delay="3" style="--c:#ffc94d">
+        <div class="tl__meta">
+          <span class="tl__date">Nov 2024 — Apr 2025</span>
+          <span class="tl__type">Freelance</span>
+        </div>
+        <div class="tl__body">
+          <h3>3D Designer &amp; Data Analyst</h3>
+          <p class="tl__org">S S Power Solar</p>
+          <ul>
+            <li>Designed residential and commercial solar panel layouts in SketchUp and AutoCAD from site requirements.</li>
+            <li>Analysed electricity consumption, solar generation and energy savings to build interactive Power BI dashboards.</li>
+            <li>Prepared data-driven reports on power usage, system efficiency and financial benefit to support proposals.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="head reveal" style="margin-top:5rem">
+      <span class="eyebrow"><i></i> Leadership</span>
+      <h2 class="title">Campus <em>activities</em></h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="mini tilt reveal" data-delay="1" style="--c:#4aa3ff">
+        <span class="mini__date">Jun 2024 — Apr 2025</span>
+        <h4>Technical &amp; Media Secretary</h4>
+        <p>Loyola Mathematics Association — led technical activities, digital media, event promotion and departmental workshops.</p>
+      </div>
+      <div class="mini tilt reveal" data-delay="2" style="--c:#3ddc97">
+        <span class="mini__date">Jun 2023 — Apr 2024</span>
+        <h4>UG Outreach Organizer &amp; Documentation Head</h4>
+        <p>Loyola College — coordinated outreach programmes, documentation and inter-departmental events.</p>
+      </div>
+      <div class="mini tilt reveal" data-delay="3" style="--c:#ffc94d">
+        <span class="mini__date">Jun 2022 — Apr 2023</span>
+        <h4>Class Representative</h4>
+        <p>Loyola College — represented the student community, coordinating communication between faculty and students.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section section--alt" id="projects">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><i></i> Portfolio</span>
+      <h2 class="title">Selected <em>projects</em></h2>
+    </div>
+
+    <div class="projects">
+      <article class="project reveal" data-delay="1" style="--c:#4aa3ff">
+        <span class="project__no">01</span>
+        <div class="project__main">
+          <span class="project__tag">Machine Learning · FinTech</span>
+          <h3>TaxGuard 360</h3>
+          <p class="project__sub">Automated Tax Regime Advisor &amp; TDS Risk Scoring</p>
+          <p>
+            An intelligent tax analysis system that automates income tax computation, deduction
+            validation and TDS risk assessment against Indian Income Tax regulations. It compares
+            old and new regimes, analyses deduction eligibility, and produces personalised,
+            explainable recommendations for efficient tax planning and compliance.
+          </p>
+          <ul class="chips"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>Risk Scoring</li><li>Explainable AI</li></ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="2" style="--c:#c9b8ff">
+        <span class="project__no">02</span>
+        <div class="project__main">
+          <span class="project__tag">Generative AI · Vector Search</span>
+          <h3>Botinigo.com</h3>
+          <p class="project__sub">AI Admission Chatbot Platform</p>
+          <p>
+            Converted the Loyola College admission prospectus into a structured knowledge repository
+            of Markdown and semantic document chunks, generated vector embeddings and indexed them
+            in Upstash Vector Database for fast, context-aware retrieval — improving both search
+            accuracy and response relevance.
+          </p>
+          <ul class="chips"><li>Vector Embeddings</li><li>Upstash</li><li>Semantic Search</li><li>RAG</li><li>Prompt Engineering</li></ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="3" style="--c:#3ddc97">
+        <span class="project__no">03</span>
+        <div class="project__main">
+          <span class="project__tag">Web Platform · Analytics</span>
+          <h3>GuideToFile</h3>
+          <p class="project__sub">India's ITR Optimizer</p>
+          <p>
+            A tax optimisation platform that estimates refunds, liabilities and eligible deductions
+            under the latest Indian tax rules. It automates old vs. new regime comparison, deduction
+            analysis and downloadable report generation, with real-time estimation built into a
+            guided filing workflow.
+          </p>
+          <ul class="chips"><li>Python</li><li>Financial Modelling</li><li>Reporting</li><li>Vercel</li></ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="4" style="--c:#ffc94d">
+        <span class="project__no">04</span>
+        <div class="project__main">
+          <span class="project__tag">Publication · Feb 2026</span>
+          <h3>Comparative Urban Climate Analysis</h3>
+          <p class="project__sub">Temperature Patterns Across Indian Cities</p>
+          <p>
+            A comparative study of historical climate data across major Indian cities, analysing
+            city-wise temperature trends and documenting insights into how urban environments
+            diverge in their warming patterns.
+          </p>
+          <ul class="chips"><li>EDA</li><li>Matplotlib</li><li>Time Series</li><li>Research</li></ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section class="section" id="achievements">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><i></i> Recognition</span>
+      <h2 class="title">Achievements &amp; <em>certifications</em></h2>
+    </div>
+
+    <div class="two-col">
+      <div class="reveal" data-delay="1">
+        <h3 class="mini-title">Notable Achievements</h3>
+        <ul class="list">
+          <li style="--c:#ffc94d"><strong>Overall Winner</strong> — MATHLETS 2025, D.G. Vaishnav College</li>
+          <li style="--c:#ff8a5c"><strong>Winner</strong> — Model Making Competition, Ethiraj College for Women</li>
+          <li style="--c:#4aa3ff"><strong>Event Organizer</strong> — Infinitrix 2025 &amp; Mathfest 2024, 2025</li>
+          <li style="--c:#3ddc97"><strong>Participant</strong> — SecureHack, Coreline Software Solutions</li>
+          <li style="--c:#c9b8ff"><strong>Completed</strong> — AI &amp; Data Science Workshop, Loyola College</li>
+          <li style="--c:#ff6b9d"><strong>Competitor</strong> — Intercollegiate technical &amp; academic competitions</li>
+        </ul>
+      </div>
+
+      <div class="reveal" data-delay="2">
+        <h3 class="mini-title">Certifications</h3>
+        <ul class="list">
+          <li style="--c:#4aa3ff"><strong>Data Analytics &amp; Artificial Intelligence</strong> — META Live Courses, Loyola College</li>
+          <li style="--c:#3ddc97"><strong>Python and SQL</strong> — Besant Technologies, Chennai</li>
+          <li style="--c:#ffc94d"><strong>Power BI</strong> — Besant Technologies, Chennai</li>
+          <li style="--c:#ff8a5c"><strong>Data Analytics</strong> — GUVI, IIT Madras, Chennai</li>
+          <li style="--c:#c9b8ff"><strong>Data Science &amp; Machine Learning</strong> — Coursera</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section--contact" id="contact">
+  <div class="container">
+    <div class="head head--center reveal">
+      <span class="eyebrow"><i></i> Contact</span>
+      <h2 class="title">Let's build something <em>useful</em></h2>
+      <p class="sub">
+        Open to data science, analytics and product engineering roles — and to interesting
+        problems that need a careful pair of eyes on the data.
+      </p>
+    </div>
+
+    <div class="contact">
+      <a class="ccard tilt reveal" data-delay="1" style="--c:#EA4335" href="mailto:ashwinth08082004@gmail.com">
+        <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></span>
+        <span class="ccard__label">Email</span>
+        <span class="ccard__value">ashwinth08082004@gmail.com</span>
+      </a>
+
+      <a class="ccard tilt reveal" data-delay="2" style="--c:#3ddc97" href="tel:+917010580526">
+        <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2Z"/></svg></span>
+        <span class="ccard__label">Phone</span>
+        <span class="ccard__value">+91 70105 80526</span>
+      </a>
+
+      <a class="ccard tilt reveal" data-delay="3" style="--c:#0A66C2" href="https://www.linkedin.com/in/ashwinkumar08082004" target="_blank" rel="noopener">
+        <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+        <span class="ccard__label">LinkedIn</span>
+        <span class="ccard__value">/in/ashwinkumar08082004</span>
+      </a>
+
+      <a class="ccard tilt reveal" data-delay="4" style="--c:#e8ebf7" href="https://github.com/Ashwinth2004/" target="_blank" rel="noopener">
+        <span class="ccard__icon"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+        <span class="ccard__label">GitHub</span>
+        <span class="ccard__value">@Ashwinth2004</span>
+      </a>
+    </div>
+
+    <div class="cta reveal">
+      <a href="mailto:ashwinth08082004@gmail.com?subject=Opportunity%20for%20Ashwin%20Kumar%20S" class="btn btn--solid btn--lg" data-magnetic>Send Me An Email</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year">2026</span> Ashwin Kumar S</p>
+    <a href="#home" class="footer__top" data-scroll data-magnetic>Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

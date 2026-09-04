@@ -1,0 +1,14 @@
+# local editor / tooling
+.claude/
+.vscode/
+.idea/
+
+# OS cruft
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# duplicate source copies of the profile photo (assets/profile.jpg is the one used)
+PROFILE.jpeg
+PROFILE.jpeg.jpeg
+WhatsApp Image*.jpeg
