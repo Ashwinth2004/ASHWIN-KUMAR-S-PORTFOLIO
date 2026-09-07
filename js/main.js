@@ -67,6 +67,9 @@
   const setMenu = open => {
     burger.classList.toggle('is-open', open);
     nav.classList.toggle('is-open', open);
+    // The stuck header's backdrop-filter would become the containing block
+    // for the fixed nav overlay and collapse it onto the header.
+    header.classList.toggle('is-nav-open', open);
     document.documentElement.classList.toggle('is-locked', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
