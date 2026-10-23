@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -99,6 +99,7 @@
     <a href="#skills"     class="nav__link" data-scroll><span>Skills</span></a>
     <a href="#experience" class="nav__link" data-scroll><span>Experience</span></a>
     <a href="#projects"   class="nav__link" data-scroll><span>Projects</span></a>
+    <a href="resume.html" class="nav__link"><span>Resume</span></a>
     <a href="#contact"    class="nav__link nav__link--cta" data-scroll><span>Let's Talk</span></a>
 
   </nav>
@@ -281,13 +282,13 @@
             <span class="edu__year">2025 — 2027</span>
             <h4>M.Sc., Data Science</h4>
             <p>Loyola College · Pursuing</p>
-            <span class="pill">8.0 CGPA — 2nd Sem</span>
+            <span class="pill">8.0 CGPA — 3rd Sem</span>
           </li>
           <li style="--c:#3ddc97">
             <span class="edu__year">2022 — 2025</span>
             <h4>B.Sc., Mathematics</h4>
             <p>Loyola College</p>
-            <span class="pill">6.5 CGPA</span>
+            <span class="pill">7.0 CGPA</span>
           </li>
           <li style="--c:#ffc94d">
             <span class="edu__year">2022</span>
@@ -430,8 +431,8 @@
           <span class="tl__type">Internship</span>
         </div>
         <div class="tl__body">
-          <h3>Finance Analyst &amp; Computax Operations</h3>
-          <p class="tl__org">Computax Operations</p>
+          <h3>Finance Analyst Intern</h3>
+          <p class="tl__org">Aionion Capital Pvt Ltd</p>
           <ul>
             <li>Analysed financial and taxation datasets to support Income Tax Return preparation and compliance.</li>
             <li>Performed data validation, categorisation and computation to identify eligible deductions and improve reporting accuracy.</li>
@@ -491,19 +492,25 @@
     </div>
 
     <div class="projects">
-      <article class="project reveal" data-delay="1" style="--c:#4aa3ff">
+      <article class="project reveal" data-delay="1" style="--c:#3ddc97">
         <span class="project__no">01</span>
         <div class="project__main">
-          <span class="project__tag">Machine Learning · FinTech</span>
-          <h3>TaxGuard 360</h3>
-          <p class="project__sub">Automated Tax Regime Advisor &amp; TDS Risk Scoring</p>
+          <span class="project__tag">Product Engineering · QA · FinTech</span>
+          <h3>TrackYourPenny</h3>
+          <p class="project__sub">Private personal finance, without a bank login</p>
           <p>
-            An intelligent tax analysis system that automates income tax computation, deduction
-            validation and TDS risk assessment against Indian Income Tax regulations. It compares
-            old and new regimes, analyses deduction eligibility, and produces personalised,
-            explainable recommendations for efficient tax planning and compliance.
+            A personal finance platform built on a double-entry ledger: you upload the bank
+            statement you already download, rules sort the routine rows, and an AI maps any
+            unfamiliar format once and remembers it — no credentials, no consent screens.
+            As <strong>Product Engineer &amp; QA</strong> I build and rigorously test the product
+            end to end — the dashboard, budgets, loans and statement imports — and shape the
+            UI/UX across both the app and the marketing site. Currently in free early access.
           </p>
-          <ul class="chips"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>Risk Scoring</li><li>Explainable AI</li></ul>
+          <ul class="chips"><li>Double-Entry Ledger</li><li>Statement Imports</li><li>QA &amp; Test Design</li><li>UI/UX</li><li>Budgets &amp; Loans</li></ul>
+          <a class="project__link" href="https://www.trackyourpenny.com" target="_blank" rel="noopener">
+            trackyourpenny.com
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
         </div>
       </article>
 
@@ -523,7 +530,7 @@
         </div>
       </article>
 
-      <article class="project reveal" data-delay="3" style="--c:#3ddc97">
+      <article class="project reveal" data-delay="3" style="--c:#4aa3ff">
         <span class="project__no">03</span>
         <div class="project__main">
           <span class="project__tag">Web Platform · Analytics</span>
@@ -539,8 +546,24 @@
         </div>
       </article>
 
-      <article class="project reveal" data-delay="4" style="--c:#ffc94d">
+      <article class="project reveal" data-delay="4" style="--c:#ff8a5c">
         <span class="project__no">04</span>
+        <div class="project__main">
+          <span class="project__tag">Machine Learning · FinTech</span>
+          <h3>TaxGuard 360</h3>
+          <p class="project__sub">Automated Tax Regime Advisor &amp; TDS Risk Scoring</p>
+          <p>
+            An intelligent tax analysis system that automates income tax computation, deduction
+            validation and TDS risk assessment against Indian Income Tax regulations. It compares
+            old and new regimes, analyses deduction eligibility, and produces personalised,
+            explainable recommendations for efficient tax planning and compliance.
+          </p>
+          <ul class="chips"><li>Python</li><li>Scikit-learn</li><li>Pandas</li><li>Risk Scoring</li><li>Explainable AI</li></ul>
+        </div>
+      </article>
+
+      <article class="project reveal" data-delay="5" style="--c:#ffc94d">
+        <span class="project__no">05</span>
         <div class="project__main">
           <span class="project__tag">Publication · Feb 2026</span>
           <h3>Comparative Urban Climate Analysis</h3>
@@ -647,6 +670,6 @@
 
 <!-- bump ?v= when style.css or main.js change, so returning visitors are not
      served a stale copy from the CDN cache -->
-<script src="js/main.js?v=4"></script>
+<script src="js/main.js?v=5"></script>
 </body>
 </html>

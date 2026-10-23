@@ -1287,3 +1287,166 @@ main, .header, .rail, .footer, .marquee{ position:relative; z-index:2; }
   }
   .reveal,.reveal-photo{ opacity:1; transform:none; }
 }
+
+/* ============================================================
+   PROJECT LIVE LINK
+   ============================================================ */
+.project__link{
+  display:inline-flex; align-items:center; gap:.4rem;
+  margin-top:1rem;
+  font-family:var(--mono); font-size:.76rem;
+  color:var(--c);
+  padding:.42rem .85rem;
+  border-radius:100px;
+  border:1px solid color-mix(in srgb, var(--c) 38%, transparent);
+  background:color-mix(in srgb, var(--c) 10%, transparent);
+  transition:background .3s var(--ease), transform .3s var(--ease);
+}
+.project__link svg{
+  width:13px; height:13px;
+  fill:none; stroke:currentColor; stroke-width:2;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+.project__link:hover{
+  background:color-mix(in srgb, var(--c) 20%, transparent);
+  transform:translateY(-2px);
+}
+
+/* ============================================================
+   RESUME PAGE
+   ============================================================ */
+/* standalone pages have no hero, so they need the header's height as padding */
+.section--page{ padding-top:clamp(7rem,12vw,9.5rem); }
+
+.btn__ico{
+  width:17px; height:17px; margin-right:.5rem;
+  fill:none; stroke:currentColor; stroke-width:1.9;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+
+.cv-actions{
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap:.8rem; margin-bottom:2.6rem;
+}
+.cv-actions--end{ margin:3rem 0 0; }
+
+/* ---- inline PDF preview ---- */
+.cv-viewer{
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:var(--bg-2);
+  box-shadow:0 24px 60px rgba(8,11,28,.45);
+  margin-bottom:3.4rem;
+}
+.cv-viewer__bar{
+  display:flex; align-items:center; gap:.8rem;
+  padding:.7rem 1rem;
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+}
+.cv-viewer__dots{ display:flex; gap:.35rem; }
+.cv-viewer__dots i{
+  width:9px; height:9px; border-radius:50%;
+  background:var(--line);
+}
+.cv-viewer__dots i:nth-child(1){ background:#ff6b6b; }
+.cv-viewer__dots i:nth-child(2){ background:var(--accent); }
+.cv-viewer__dots i:nth-child(3){ background:var(--c-green); }
+.cv-viewer__name{
+  font-family:var(--mono); font-size:.72rem; color:var(--dim);
+}
+.cv-viewer iframe{
+  display:block; width:100%; height:min(118vh,1020px);
+  border:0; background:#f4f5fa;
+}
+
+/* ---- written resume ---- */
+.cv__block{ margin-bottom:3rem; }
+.cv__h{
+  font-family:var(--display);
+  font-size:1.12rem; font-weight:600;
+  letter-spacing:-.01em;
+  padding-bottom:.7rem; margin-bottom:1.5rem;
+  border-bottom:1px solid var(--line);
+}
+.cv__lead{ color:var(--muted); font-size:1.02rem; max-width:80ch; }
+.cv__plain{ color:var(--muted); font-size:.92rem; max-width:80ch; }
+
+.cv__row{
+  display:grid; grid-template-columns:210px 1fr;
+  gap:1.8rem;
+  padding:1.5rem 1.6rem;
+  border:1px solid var(--line);
+  border-left:3px solid var(--c);
+  border-radius:16px;
+  background:rgba(255,255,255,.028);
+  margin-bottom:.9rem;
+  transition:background .35s var(--ease), transform .35s var(--ease);
+}
+.cv__row:hover{ background:rgba(255,255,255,.05); transform:translateX(4px); }
+.cv__meta{ display:flex; flex-direction:column; gap:.4rem; }
+.cv__date{ font-family:var(--mono); font-size:.72rem; color:var(--c,var(--accent)); }
+.cv__kind{
+  align-self:flex-start;
+  font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--dim);
+  padding:.18rem .6rem; border-radius:100px;
+  border:1px solid var(--line);
+}
+.cv__body h4{ font-family:var(--display); font-size:1.12rem; font-weight:600; }
+.cv__org{ color:var(--muted); font-size:.89rem; margin-bottom:.75rem; }
+.cv__body ul li{
+  position:relative; padding-left:1.2rem; margin-bottom:.42rem;
+  color:var(--muted); font-size:.9rem;
+}
+.cv__body ul li::before{
+  content:''; position:absolute; left:0; top:.66rem;
+  width:6px; height:6px; border-radius:50%; background:var(--c);
+}
+
+.cv__grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+  gap:1rem;
+}
+.cv__card{
+  padding:1.4rem 1.3rem;
+  border:1px solid var(--line);
+  border-top:3px solid var(--c);
+  border-radius:15px;
+  background:rgba(255,255,255,.03);
+  transition:background .35s var(--ease), transform .35s var(--ease);
+}
+.cv__card:hover{ background:rgba(255,255,255,.055); transform:translateY(-3px); }
+.cv__card h4{ font-family:var(--display); font-size:1.02rem; font-weight:600; margin:.3rem 0 .3rem; }
+.cv__card p{ color:var(--muted); font-size:.86rem; }
+.cv__link{
+  display:inline-block; margin-top:.7rem;
+  font-family:var(--mono); font-size:.72rem; color:var(--c);
+}
+.cv__link:hover{ text-decoration:underline; }
+
+.cv__skills{ display:grid; gap:.6rem; }
+.cv__skills > div{
+  display:grid; grid-template-columns:230px 1fr; gap:1.2rem;
+  padding:.85rem 1.1rem;
+  border:1px solid var(--line);
+  border-left:3px solid var(--c);
+  border-radius:12px;
+  background:rgba(255,255,255,.028);
+}
+.cv__skills dt{
+  font-family:var(--mono);
+  font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--c);
+}
+.cv__skills dd{ color:var(--muted); font-size:.89rem; }
+
+@media(max-width:860px){
+  /* phones and most tablets refuse to render a PDF in a frame — the written
+     version above is the readable copy there, so hide the dead box */
+  .cv-viewer{ display:none; }
+  .cv__row{ grid-template-columns:1fr; gap:.85rem; padding:1.3rem; }
+  .cv__meta{ flex-direction:row; align-items:center; gap:.7rem; flex-wrap:wrap; }
+  .cv__skills > div{ grid-template-columns:1fr; gap:.3rem; }
+}

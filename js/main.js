@@ -17,18 +17,22 @@
   const HARD_CAP = 4000;
   const started  = performance.now();
 
+  // Secondary pages (resume.html) ship no preloader, so every reference here
+  // has to tolerate its absence.
   const preloader = $('#preloader');
   let dismissed = false;
   const dismiss = () => {
-    if (dismissed) return;
+    if (dismissed || !preloader) return;
     dismissed = true;
     preloader.classList.add('is-done');
   };
   const finish = () => setTimeout(dismiss, Math.max(0, MIN_SHOW - (performance.now() - started)));
 
-  window.addEventListener('load', finish);
-  setTimeout(finish, MIN_SHOW);   // in case `load` already fired or never does
-  setTimeout(dismiss, HARD_CAP);
+  if (preloader) {
+    window.addEventListener('load', finish);
+    setTimeout(finish, MIN_SHOW);   // in case `load` already fired or never does
+    setTimeout(dismiss, HARD_CAP);
+  }
 
   /* ---------- collapsible social rail ---------- */
   const rail       = $('#rail');
@@ -160,10 +164,13 @@
   };
 
   /* ---------- scroll-spy nav linking ---------- */
-  const links    = $$('.nav__link');
+  // Cross-page links ("index.html#about") are not valid selectors — passing one
+  // to querySelector throws and would take the whole script down with it.
+  const links    = $$('.nav__link').filter(l => (l.getAttribute('href') || '').startsWith('#'));
   const sections = links.map(l => document.querySelector(l.getAttribute('href'))).filter(Boolean);
 
   const spy = () => {
+    if (!sections.length) return;
     const line = window.scrollY + window.innerHeight * 0.3;
     let current = sections[0];
     sections.forEach(sec => { if (sec.offsetTop <= line) current = sec; });
